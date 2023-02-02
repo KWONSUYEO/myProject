@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+body {
+	font-weight: bold;
+}
+
+.communityTb1 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-image: url("../img/bucket-lightred.png");
+	background-size: cover;
+	background-position: center;
+}
+
+.communityBtn {
+	background-color: transparent;
+	border: none;
+	font-size: 25px;
+	font-weight: 600;
+	margin: 5px;
+	cursor: pointer;
+}
+
+#snsL {
+	position: fixed;
+	font-size: 50pt;
+	font-weight: 900;
+	margin: 5px;
+	left: 50px;
+	color: pink;
+	top: 500px;
+	text-decoration: none;
+}
+
+#snsR {
+	position: fixed;
+	font-size: 50pt;
+	font-weight: 900;
+	margin: 5px;
+	right: 50px;
+	color: pink;
+	top: 500px;
+	text-decoration: none;
+}

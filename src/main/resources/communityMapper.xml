@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kwon.mini.community.CommunityMapper">
+
+<delete id="deleteCommunity" parameterType="com.kwon.mini.community.Community">
+delete from Community where c_no = #{c_no}
+</delete>
+
+<delete id="deleteCommunity_comment" parameterType="com.kwon.mini.community.Community_comment">
+delete from community_comment
+		where cc_no = #{cc_no}
+</delete>
+
+<select id="getAllMsgCount" resultType="java.lang.Integer">
+select count(*)	from mini_member, community where m_id = c_owner
+</select>
+
+<select id="getSearchMsgCount" parameterType="com.kwon.mini.community.CommunitySelector" resultType="java.lang.Integer">
+select count(*) from mini_member, community
+		where m_id = c_owner
+		and (c_txt like '%'||#{search}||'%' or m_id like '%'||#{search}||'%')
+</select>
+
+<select id="getCom" parameterType="com.kwon.mini.community.CommunitySelector" resultType="com.kwon.mini.community.Community">
+select * from (
+		select rownum as rn, m_id, c_txt, c_when, c_no
+		from ( select * from mini_member, community
+		where m_id = c_owner
+		and (c_txt like '%'||#{search}||'%' or m_id like '%'||#{search}||'%')
+		order by c_when desc ))
+		where rn &gt;= #{start} and rn &lt;= #{end}
+</select>
+
+<select id="getCC" parameterType="com.kwon.mini.community.Community" resultType="com.kwon.mini.community.Community_comment">
+	select * from community_comment
+		where cc_c_no = #{c_no}
+		order by cc_when
+</select>
+
+<insert id="writeCommunity" parameterType="com.kwon.mini.community.Community">
+insert into Community 
+	values(community_seq.nextval, #{m_id}, #{c_txt}, sysdate)
+</insert>
+
+<insert id="writecomment" parameterType="com.kwon.mini.community.Community_comment">
+insert into community_comment 
+	values(community_comment_seq.nextval, #{cc_c_no}, #{cc_owner}, #{cc_txt}, sysdate)
+</insert>
+
+<update id="updateCommunity" parameterType="com.kwon.mini.community.Community">
+update community set c_txt = #{c_txt}
+		where c_no = #{c_no}
+</update>
+
+
+</mapper>

@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+
+@font-face {
+	font-family: "a";
+	src: url("11.TTF");
+}
+
+body{
+	margin: 0px;
+	padding: 0px;
+	font-family: "a";
+	background-color: black;
+}
+
+a{
+	text-decoration: none;
+	color: #ffffff;
+	transition: all 0.5s ease-in;
+}
+
+a:hover{
+	font-size: 35pt;
+	text-shadow: #ffffff 1px 1px 5px;
+}
+#siteTitleTbl{
+	width: 100%;
+	border-spacing: 0px;
+	font-size: 25pt;
+}
+
+#siteTitle{
+	background-color: black;	
+	height: 60px;
+	font-size: 25pt;
+}
+
+#siteMenu{
+	background-color: black;
+}
+
+#siteContentTbl{
+	width: 100%;
+}
+
+#siteContent{
+	font-size: 20pt;
+	font-weight: 300;
+	color: white;
+}
+
+#siteLoginTbl{
+	width: 200px;
+	height: 200px;
+	position: fixed;
+	top: 104px;
+	right: 0px;
+	background-color: grey;
+	font-family: "b";
+}
+
+#dbResult{
+	font-size: 18pt;
+	font-weight: 600;
+	position: fixed;
+	top: 70px;
+	right: 25px;
+	color: white;
+}
+
+#welcomeTbl{
+	font-size: 18pt;
+	font-weight: 500;
+	color: white;
+}
+
+#welcomeTbl button{
+	background-color: white;
+	border: pink solid 3px;
+	margin-top: 30px;
+	margin-left: 10px;
+}

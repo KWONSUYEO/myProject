@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kwon.mini.member.MemberMapper">
+<select id="getMember" parameterType="com.kwon.mini.member.Member" resultType="com.kwon.mini.member.Member">
+select * from mini_member where m_id = #{m_id}
+</select>
+
+<insert id = "join" parameterType="com.kwon.mini.member.Member">
+insert into mini_member values(#{m_id},#{m_password},#{m_name},#{m_phone},#{m_add},#{m_email},#{m_pwchque},#{m_pwchans})
+</insert>
+
+<delete id="withdraw" parameterType="com.kwon.mini.member.Member">
+delete from mini_member where m_id = #{m_id}
+</delete>
+
+<update id="update" parameterType="com.kwon.mini.member.Member">
+update mini_member set m_password = #{m_password}, m_name = #{m_name},m_phone=#{m_phone} ,m_add = #{m_add}, m_email = #{m_email},m_pwchque=#{m_pwchque}, m_pwchans=#{m_pwchans} 
+		where m_id=#{m_id}
+</update>
+</mapper>
